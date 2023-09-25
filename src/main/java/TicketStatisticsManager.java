@@ -28,24 +28,20 @@ public class TicketStatisticsManager implements ITicketsSeverityStatisticsManage
         }
     }
 
-    public Set<ITicketSeverity> getTicketsBySeverity(ITicketSeverity.Severity severity) {
-        // returning a copy of the set, so it won't be modified externally
-        return new HashSet<>(this.severityToTicketsMap.get(severity));
-    }
 
     @Override
     public String calcStatistics() {
         String str = "";
         str += "";
-        str += "By Severities:\n";
+        str += "By Severities:";
         for (Map.Entry<ITicketSeverity.Severity, Set<ITicketSeverity>> entry : severityToTicketsMap.entrySet()) {
-            str += "  " + entry.getKey() + ": " + entry.getValue().size() + " tickets.\n";
+            str += "\n  " + entry.getKey() + ": " + entry.getValue().size() + " tickets.";
         }
 
         if (!cveToTicketsMap.entrySet().isEmpty()) {
-            str += "By CVEs:\n";
+            str += "\nBy CVEs:";
             for (Map.Entry<String, Set<ITicketCVE>> entry : cveToTicketsMap.entrySet()) {
-                str += "  " + entry.getKey() + ": " + entry.getValue().size() + " tickets.\n";
+                str += "\n  " + entry.getKey() + ": " + entry.getValue().size() + " tickets.";
             }
         }
 

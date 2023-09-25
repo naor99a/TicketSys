@@ -58,6 +58,6 @@ abstract public class TicketBase implements ITicket, ITicketSeverity {
                 "\t, resolution='" + resolution + '\'' +
                 "\t, isOpen=" + isOpen +
                 "\t, severity=" + severity +
-                "\t, type=" + type;
+                "\t, type=" + type; // todo
     }
 }
