@@ -1,0 +1,54 @@
+public class TicketBase implements ITicket, ITicketSeverity {
+
+    static enum TicketType {
+        SECURITY, CONFIGURATION, BEST_PRACTICE
+    }
+
+    private int id;
+    private String description;
+    private String resolution;
+    private boolean isOpen = true;
+    private Severity severity;
+    private TicketType type;
+
+    protected TicketBase(String description, Severity severity, TicketType type) {
+        this.description = description;
+        this.severity = severity;
+        this.type = type;
+    }
+
+    @Override
+    public int getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getResolution() {
+        return this.resolution;
+    }
+
+    @Override
+    public Severity getSeverity() {
+        return this.severity;
+    }
+
+    public TicketType getType() {
+        return this.type;
+    }
+
+    public void setResolutionAndClose(String resolution) {
+        this.resolution = resolution;
+        this.isOpen = false;
+    }
+
+}
