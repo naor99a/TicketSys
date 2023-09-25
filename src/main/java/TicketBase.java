@@ -1,4 +1,4 @@
-public class TicketBase implements ITicket, ITicketSeverity {
+abstract public class TicketBase implements ITicket, ITicketSeverity {
 
     static enum TicketType {
         SECURITY, CONFIGURATION, BEST_PRACTICE
@@ -51,4 +51,13 @@ public class TicketBase implements ITicket, ITicketSeverity {
         this.isOpen = false;
     }
 
+    @Override
+    public String toString() {
+        return "id=" + id +
+                "\t, description='" + description + '\'' +
+                "\t, resolution='" + resolution + '\'' +
+                "\t, isOpen=" + isOpen +
+                "\t, severity=" + severity +
+                "\t, type=" + type;
+    }
 }
