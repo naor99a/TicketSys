@@ -3,7 +3,7 @@ import java.util.*;
 public class TicketsManager implements ITicketManager{
 
     private int lastTicketId = 0;
-    private Hashtable<Integer, ITicket> tickets = new Hashtable<>();
+    private HashMap<Integer, ITicket> tickets = new HashMap<>();
 
 
     @Override
