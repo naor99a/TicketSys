@@ -54,6 +54,8 @@ public class TicketsProgram {
         TicketBase.TicketType[] ticketTypeValues = TicketBase.TicketType.values();
         TicketBase.TicketType type = ticketTypeValues[rand.nextInt(ticketTypeValues.length)];
 
+        String description = "[Description placeholder]";
+
         // select a random ticket severity
         ITicketSeverity.Severity[] severityValues = ITicketSeverity.Severity.values();
         ITicketSeverity.Severity severity = severityValues[rand.nextInt(severityValues.length)];
@@ -64,19 +66,19 @@ public class TicketsProgram {
         TicketBase newTicket;
         switch (type) {
             case SECURITY:
-                newTicket = new TicketTypeSecurity("[Insert description here]", severity, cve);
+                newTicket = new TicketTypeSecurity(description, severity, cve);
                 break;
             case CONFIGURATION:
-                newTicket = new TicketTypeConfiguration("[Insert description here]", severity);
+                newTicket = new TicketTypeConfiguration(description, severity);
                 break;
             case BEST_PRACTICE:
             default:
-                newTicket = new TicketTypeBestPractice("[Insert description here]", severity, cve);
+                newTicket = new TicketTypeBestPractice(description, severity, cve);
         }
 
         // decide randomly if to close the ticket
         if (rand.nextInt(4) == 1) {
-            newTicket.setResolutionAndClose("[Insert resolution here]");
+            newTicket.setResolutionAndClose("[Resolution placeholder]");
         }
 
         return newTicket;
