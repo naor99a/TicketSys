@@ -5,12 +5,18 @@ public class TicketsManager implements ITicketManager{
     private int lastTicketId = 0;
     private HashMap<Integer, ITicket> tickets = new HashMap<>();
 
+    private TicketStatisticsManager statMgr = new TicketStatisticsManager();
+
 
     @Override
     public void addTicket(ITicket ticket) {
         lastTicketId++;
         ticket.setId(lastTicketId);
         tickets.put(lastTicketId, ticket);
+        if (ticket instanceof ITicketSeverity)
+        {
+            statMgr.addTicketForAnalyzing((ITicketSeverity)ticket);
+        }
     }
 
     @Override
@@ -69,6 +75,8 @@ public class TicketsManager implements ITicketManager{
         for (ITicket ticket : this.tickets.values()) {
             System.out.println(ticket);
         }
+
+        System.out.println("Stats:\n" + statMgr.calcStatistics());
     }
 
     public static void main(String[] args) {
