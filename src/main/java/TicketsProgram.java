@@ -1,10 +1,13 @@
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class TicketsProgram {
     static final int TICKETS_NUM = 1000;
+
     public static void main(String[] args) {
         TicketsManager ticketsMgr = new TicketsManager();
 
@@ -15,8 +18,13 @@ public class TicketsProgram {
 
         // print statistics (Tasks 1.a, 1.b)
         // assumption: opened means all opened tickets, including those who were closed
-        System.out.println("Statistics of all opened tickets:\n" + ticketsMgr.getStatistics() + "\n");;
+        System.out.println("=== Statistics of all opened tickets ===\n");
 
+
+        System.out.println("By Severities: " + ticketsMgr.getStatistics() + "\n");
+        System.out.println("By CVEs: " + ticketsMgr.getCVEStatistics() + "\n");
+
+        System.out.println("===========\n");
 
         // print how many open tickets with CVEs exist (Task 2.a)
         // assumption: null resolution means 'open'

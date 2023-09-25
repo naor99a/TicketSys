@@ -7,7 +7,6 @@ abstract public class TicketBase implements ITicket, ITicketSeverity {
     private int id;
     private String description;
     private String resolution;
-    private boolean isOpen = true;
     private Severity severity;
     private TicketType type;
 
@@ -48,15 +47,14 @@ abstract public class TicketBase implements ITicket, ITicketSeverity {
 
     public void setResolutionAndClose(String resolution) {
         this.resolution = resolution;
-        this.isOpen = false;
     }
 
+    // for debugging - can be ignored
     @Override
     public String toString() {
         return "id=" + id +
                 "\t, description='" + description + '\'' +
                 "\t, resolution='" + resolution + '\'' +
-                "\t, isOpen=" + isOpen +
                 "\t, severity=" + severity +
                 "\t, type=" + type; // todo
     }

@@ -10,6 +10,7 @@ abstract public class TicketBaseCVE extends TicketBase implements ITicketCVE {
         return this.cve;
     }
 
+    // for debugging - can be ignored
     @Override
     public String toString() {
         return super.toString() + "\t, CVE_num: " + cve; // todo

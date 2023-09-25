@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class TicketsManager implements ITicketManager {
+    // counter for IDs
     private int lastTicketId = 0;
 
     // we use HashMap for quick access by key (which is the ticked id)
@@ -39,5 +40,9 @@ public class TicketsManager implements ITicketManager {
 
     public String getStatistics() {
         return statMgr.calcStatistics();
+    }
+
+    public String getCVEStatistics() {
+        return statMgr.calcCVEStatistics();
     }
 }

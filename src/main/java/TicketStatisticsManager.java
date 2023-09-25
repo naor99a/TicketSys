@@ -32,17 +32,8 @@ public class TicketStatisticsManager implements ITicketsSeverityStatisticsManage
     @Override
     public String calcStatistics() {
         String str = "";
-        str += "";
-        str += "By Severities:";
         for (Map.Entry<ITicketSeverity.Severity, Set<ITicketSeverity>> entry : severityToTicketsMap.entrySet()) {
             str += "\n  " + entry.getKey() + ": " + entry.getValue().size() + " tickets.";
-        }
-
-        if (!cveToTicketsMap.entrySet().isEmpty()) {
-            str += "\nBy CVEs:";
-            for (Map.Entry<String, Set<ITicketCVE>> entry : cveToTicketsMap.entrySet()) {
-                str += "\n  " + entry.getKey() + ": " + entry.getValue().size() + " tickets.";
-            }
         }
 
         return str;
@@ -50,6 +41,10 @@ public class TicketStatisticsManager implements ITicketsSeverityStatisticsManage
 
     @Override
     public String calcCVEStatistics() {
-        return null;
+        String str = "";
+        for (Map.Entry<String, Set<ITicketCVE>> entry : cveToTicketsMap.entrySet()) {
+            str += "\n  " + entry.getKey() + ": " + entry.getValue().size() + " tickets.";
+        }
+        return str;
     }
 }
