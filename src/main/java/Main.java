@@ -1,11 +1,6 @@
-import java.time.LocalDate;
-import java.util.Collection;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-public class TicketsProgram {
+public class Main {
     static final int TICKETS_NUM = 1000;
 
     public static void main(String[] args) {
